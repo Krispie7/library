@@ -1,4 +1,5 @@
 let myLibrary = [];
+let globalBookNumber;
 const library= document.getElementById("library")
 
 function book(title, author, pages, readStatus, bookNumber){
@@ -94,6 +95,7 @@ function openEditForm(bookNumber){
     }
     document.getElementById("editBookFormContainer").classList.add('active')
     document.getElementById("overlay").classList.add('active')
+    globalBookNumber=bookNumber
 }
 
 function closeEditForm(){
@@ -102,7 +104,19 @@ function closeEditForm(){
 }
 
 function submitEditForm(){
-
+    let currentBook=myLibrary[myLibrary.findIndex(book=>book.bookNumber==globalBookNumber)]
+    currentBook.title=document.getElementById("titleDisplay").value
+    currentBook.author=document.getElementById("authorDisplay").value
+    currentBook.pages=document.getElementById("pagesDisplay").value
+    if (document.querySelector("input[name='readStatus']:checked").value=="Read✅"){
+        currentBook.readStatus="Read✅"
+    }
+    else if(document.querySelector("input[name='readStatus]:checked'").value=="Unread❌"){
+        currentBook.readStatus="Unread❌"
+    }
+    /*updateBook(currentBook)*/
+    console.log(myLibrary)
+    closeEditForm
 }
 
 openFormButton.addEventListener('click', openForm)
