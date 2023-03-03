@@ -14,6 +14,8 @@ function book(title, author, pages, readStatus){
 
 function addBookToLibrary(title, author, pages, readStatus) {
   myLibrary.push(new book(title, author, pages, readStatus));
+  addBookToGrid(myLibrary[myLibrary.length-1])
+  return;
 }
 
 function addBookToGrid(book){
@@ -44,9 +46,6 @@ function updateBooks(){
     }
 }
 
-addBookToLibrary("The Cat in the Hat", "Dr. Suess", "15", "Read")
-addBookToLibrary("Green Eggs and Ham", "Dr. Suess", "60", "Read✅")
-addBookToGrid(myLibrary[1])
 
 console.log(myLibrary)
 
@@ -54,6 +53,7 @@ console.log(myLibrary)
 
 const openFormButton = document.getElementById("addButton");
 const closeFormButton = document.getElementById("closeFormButton");
+const submitFormButton=document.getElementById("submitFormButton")
 const overlay=document.getElementById("overlay");
 
 function openForm(){
@@ -70,3 +70,13 @@ function closeForm(){
 
 openFormButton.addEventListener('click', openForm)
 closeFormButton.addEventListener('click', closeForm)
+submitFormButton.addEventListener('click', ()=>{
+    let title=document.getElementById("title").value
+    let author=document.getElementById("author").value
+    let pages=document.getElementById("pages").value
+    let readStatus=document.getElementById("readStatus").value
+    addBookToLibrary(title, author, pages, readStatus)
+    closeForm();
+    return;
+})
+
