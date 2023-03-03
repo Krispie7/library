@@ -84,6 +84,14 @@ function openEditForm(bookNumber){
     title.value=currentBook.title
     author.value=currentBook.author
     pages.value=currentBook.pages
+    if (currentBook.readStatus=="Read✅"){
+        document.querySelector("#readStatusDisplay.false").removeAttribute("checked", "")
+        document.querySelector("#readStatusDisplay.true").setAttribute("checked", "")
+    }
+    else if (currentBook.readStatus=="Unread❌"){
+        document.querySelector("#readStatusDisplay.true").removeAttribute("checked", "")
+        document.querySelector("#readStatusDisplay.false").setAttribute("checked", "")
+    }
     document.getElementById("editBookFormContainer").classList.add('active')
     document.getElementById("overlay").classList.add('active')
 }
