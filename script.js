@@ -55,6 +55,16 @@ const openFormButton = document.getElementById("addButton");
 const closeFormButton = document.getElementById("closeFormButton");
 const submitFormButton=document.getElementById("submitFormButton")
 const overlay=document.getElementById("overlay");
+const openMenuButton = document.getElementById("menuButton");
+const closeMenuButton =document.getElementById("closeButton");
+
+function openMenu(){
+    document.getElementById("menu").classList.add("active")
+}
+
+function closeMenu(){
+    document.getElementById("menu").classList.remove("active")
+}
 
 function openForm(){
     document.getElementById("formContainer").classList.add('active')
@@ -70,6 +80,10 @@ function closeForm(){
 
 openFormButton.addEventListener('click', openForm)
 closeFormButton.addEventListener('click', closeForm)
+openMenuButton.addEventListener('click', openMenu)
+closeMenuButton.addEventListener('click', closeMenu)
+
+
 submitFormButton.addEventListener('click', ()=>{
     let title=document.getElementById("title").value
     let author=document.getElementById("author").value

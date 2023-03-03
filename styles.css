@@ -12,20 +12,25 @@ body{
     margin:0;
 }
 
-.menu{
+h1{
+    justify-self: center;
+}
+
+#menu{
     background-color:white;
     border-radius:1rem;
     width:40%;
     height:90%;
     display:flex;
-    transition: 300ms ease;
+    transition: 500ms ease;
     position: relative;
     flex-direction: column;
     align-items: center;
+    transform: translate(0%, 100%)
 }
 
-h1{
-    justify-self: center;
+#menu.active{
+    transform: translate(0%, 0%);
 }
 
 .button{
