@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <script defer="defer" src="script.js"></script>
+</head>
+<body>
+    <div class="menu">
+        <div class ="button" id="menuButton"><i class="fa-solid fa-bars"></i></div>
+        <div class ="button" id="closeButton"><i class="fa-regular fa-x"></i></div>
+        <h1>Library</h1>
+        <div class ="button" id="addButton"><i class="fa-solid fa-plus"></i>Add Book</div>
+        <div id="library">
+            <div class="book">
+                <h3>The Cat in the Hat</h3>
+                <p class="two">Pages: 15</p>
+                <p class="three">by Dr. Suess</p>
+                <p class="four">Read</p>
+            </div>
+        </div>
+    </div>
+    <div class="" id="formContainer">
+        <div  id="form">
+            <button class="button" id="closeFormButton">&times;</button>
+            <h1>New Book</h1>
+            <div class="readStatusGrid">
+                <label for="title">What the title of the book?</label>
+                <input type="text" id="title">
+                <label for="author">Who's the author?</label>
+                <input type="text" id="author">
+                <label for="pages">How many Pages does it have?</label>
+                <input type="text" id="pages">
+                <label for="readStatus">Did you read it?</label>
+                <div class="readContainer">
+                    <label class= "false" for="readStatus" value="true">Unread❌</label>
+                    <input class="false" type="radio" id="readStatus" name="readStatus">
+                    <label class ="true" for="readStatus" value="true">Read✅</label>
+                    <input class="true" type="radio" id="readStatus" name="readStatus">
+                </div>
+                <button class="button" id="submitFormButton">Create</button>
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+</body>
+</html>
