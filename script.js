@@ -25,7 +25,7 @@ function addBookToGrid(book){
     let readStatus = document.createElement("p")
     newBook.classList.add("book")
     newBook.dataset.bookNumber=book.bookNumber
-
+    newBook.setAttribute("id", book.bookNumber)
     title.innerHTML=book.title
     author.innerHTML="by " + book.author
     pages.innerHTML="Pages: " + book.pages
@@ -44,6 +44,15 @@ function addBookToGrid(book){
     return;
 }
 
+function updateBook(currentBook){
+    let book=document.getElementById(currentBook.bookNumber);
+    /*find the div with data-book-number equal to globalBookNumber (book1)
+    get h3 and p of the div, and change them into correct values*/
+    book.children[0].innerText=currentBook.title
+    book.children[1].innerText="Pages: " + currentBook.pages
+    book.children[2].innerText="by " + currentBook.author
+    book.children[3].innerText=currentBook.readStatus
+}
 /* Form buttons */
 
 const openFormButton = document.getElementById("addButton");
@@ -101,6 +110,7 @@ function openEditForm(bookNumber){
 function closeEditForm(){
     document.getElementById("editBookFormContainer").classList.remove('active')
     document.getElementById("overlay").classList.remove('active')
+    console.log("got here")
 }
 
 function submitEditForm(){
@@ -111,11 +121,10 @@ function submitEditForm(){
     if (document.querySelector("input[name='readStatus']:checked").value=="Read✅"){
         currentBook.readStatus="Read✅"
     }
-    else if(document.querySelector("input[name='readStatus]:checked'").value=="Unread❌"){
+    else if(document.querySelector("input[name='readStatus']:checked").value=="Unread❌"){
         currentBook.readStatus="Unread❌"
     }
-    /*updateBook(currentBook)*/
-    console.log(myLibrary)
+    updateBook(currentBook) /*currentBook is the object*/
     closeEditForm
 }
 
